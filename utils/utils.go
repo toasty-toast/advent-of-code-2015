@@ -2,6 +2,7 @@ package utils
 
 import (
 	"bufio"
+	"math"
 	"os"
 )
 
@@ -11,7 +12,7 @@ func check(err error) {
 	}
 }
 
-// ReadLines reads all lines from a file and returns them in a slice
+// ReadLines reads all lines from a file and returns them in a slice.
 func ReadLines(filename string) []string {
 	file, err := os.Open(filename)
 	check(err)
@@ -23,4 +24,15 @@ func ReadLines(filename string) []string {
 	}
 
 	return lines
+}
+
+// MinInt returns the int with the lowest value from the slice.
+func MinInt(vals []int) int {
+	min := math.MaxInt32
+	for _, val := range vals {
+		if val < min {
+			min = val
+		}
+	}
+	return min
 }
