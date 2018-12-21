@@ -26,6 +26,13 @@ func ReadLines(filename string) []string {
 	return lines
 }
 
+// ReplaceAtIndex replaces the character at a given index in a string.
+func ReplaceAtIndex(s string, i int, r rune) string {
+	out := []rune(s)
+	out[i] = r
+	return string(out)
+}
+
 // MinInt returns the int with the lowest value from the slice.
 func MinInt(vals []int) int {
 	min := math.MaxInt32
